@@ -7,6 +7,9 @@ export default (state = {}, action) => {
 				inProgress: false,
 				errors: action.error ? action.payload.errors : null
 			}
+		case 'LOGIN_PAGE_UNLOADED':
+		case 'REGISTER_PAGE_UNLOADED':
+			return {};
 		case 'UPDATE_FIELD_AUTH':
 			return { ...state, [action.key]: action.value };
 		case 'ASYNC_START':
