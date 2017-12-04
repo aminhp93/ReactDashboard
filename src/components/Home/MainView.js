@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import ArticleList from '../ArticleList';
 
 const mapStateToProps = state => ({
-	articles: state.home.articles
+	// articles: state.articleList.articles
+	...state.articleList
 })
 
 const MainView = props => {
