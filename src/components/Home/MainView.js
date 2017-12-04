@@ -11,6 +11,21 @@ const mapStateToProps = state => ({
 	token: state.common.token
 })
 
+const TagFilterTag = props => {
+	if (!props.tag){
+		return null;
+	}
+
+	return (
+		<li className="nav-item">
+			<a href="" className="nav-link active">
+				<i className="ion-pound"></i>{props.tag}
+			</a>
+		</li>
+	)
+}
+
+
 const YourFeedTab = props => {
 	console.log(15, props)
 	if (props.token){
@@ -72,6 +87,9 @@ const MainView = props => {
 					<GlobalFeedTab
 						tab={props.tab}
 						onTabClick={props.onTabClick}/>
+
+					<TagFilterTag
+						tag={props.tag}/>
 				</ul>
 			</div>
 			<ArticleList articles={props.articles}/>
