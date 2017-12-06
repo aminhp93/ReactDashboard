@@ -1,11 +1,14 @@
 import { applyMiddleware, createStore } from 'redux';
-import { promiseMiddleware } from './middleware';
+import { routerMiddleware } from 'react-router-redux'
+import createHistory from 'history/createBrowserHistory';
 
 import reducer from './reducer';
 
 
-const middleware = applyMiddleware(promiseMiddleware);
+export const history = createHistory();
 
-const store = createStore(reducer, middleware);
+// Build the middleware for intercepting and dispatching navigation actions
+const myRouterMiddleware = routerMiddleware(history);
 
-export default store;
+export const store = createStore(
+  reducer, applyMiddleware(myRouterMiddleware));

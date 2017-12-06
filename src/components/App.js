@@ -1,8 +1,18 @@
-import Header from './Header';
-import Home from './Home';
 import React from 'react';
 import agent from '../agent';
 import { connect } from 'react-redux';
+import { Route, Switch } from 'react-router-dom';
+
+import Article from './Article';
+import Home from './Home';
+import Header from './Header';
+import Editor from './Editor';
+import Login from './Login';
+import Register from './Register';
+import Settings from './Settings';
+import Profile from './Profile';
+import ProfileFavorites from './ProfileFavorites';
+
 
 const mapStateToProps = state => ({
   appLoaded: state.common.appLoaded,
@@ -42,6 +52,17 @@ class App extends React.Component {
           <Header
             currentUser={this.props.currentUser}
             appName={this.props.appName} />
+          <Switch>
+            <Route exact path="/" component={Home}/>
+            <Route path="/login" component={Login} />
+            <Route path="/register" component={Register} />
+            <Route path="/editor/:slug" component={Editor} />
+            <Route path="/editor" component={Editor} />
+            <Route path="/article/:id" component={Article} />
+            <Route path="/settings" component={Settings} />
+            <Route path="/@:username/favorites" component={ProfileFavorites} />
+            <Route path="/@:username" component={Profile} />
+          </Switch>
           {this.props.children}
         </div>
       );
