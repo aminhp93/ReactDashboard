@@ -92,7 +92,7 @@ class Profile extends React.Component {
       <ul className="nav nav-pills outline-active">
         <li className="nav-item">
           <Link
-            className="nav-link"
+            className="nav-link active"
             to={`/@${this.props.profile.username}`}>
             My Articles
           </Link>
@@ -100,7 +100,7 @@ class Profile extends React.Component {
 
         <li className="nav-item">
           <Link
-            className="nav-link active"
+            className="nav-link"
             to={`/@${this.props.profile.username}/favorites`}>
             Favorited Articles
           </Link>

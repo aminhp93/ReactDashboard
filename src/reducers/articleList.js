@@ -47,7 +47,6 @@ export default (state = {}, action) => {
         currentPage: 0
       };
     case HOME_PAGE_LOADED:
-      console.log('HOME_PAGE_LOADED', action)
       return {
         ...state,
         pager: action.pager,
