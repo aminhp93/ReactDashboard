@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 const LoggedOutView = props => {
@@ -57,7 +57,7 @@ const LoggedInView = props => {
           <Link
             to={`/@${props.currentUser.username}`}
             className="nav-link">
-            <img src={props.currentUser.image} className="user-pic" />
+            <img src={props.currentUser.image} className="user-pic" alt={props.currentUser.username} />
             {props.currentUser.username}
           </Link>
         </li>
@@ -65,6 +65,7 @@ const LoggedInView = props => {
       </ul>
     );
   }
+
   return null;
 };
 
@@ -86,6 +87,5 @@ class Header extends React.Component {
     );
   }
 }
-
 
 export default Header;
