@@ -7,6 +7,8 @@ import { Route, Switch } from 'react-router-dom';
 import { ConnectedRouter } from 'react-router-redux';
 
 import App from './components/App';
+import registerServiceWorker from './registerServiceWorker';
+
 
 ReactDOM.render((
   <Provider store={store}>
@@ -18,3 +20,4 @@ ReactDOM.render((
   </Provider>
 
 ), document.getElementById('root'));
+registerServiceWorker();
